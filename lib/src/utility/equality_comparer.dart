@@ -114,6 +114,11 @@ class EqualityComparer<T> {
       hasher: (value) => value.hashCode,
       sorter: (left, right) => left.compareTo(right),
     ),
+    bool: EqualityComparer<bool>(
+        comparer: (left, right) => left == right,
+        hasher: (value) => value.hashCode,
+        sorter: (left, right) =>  left == right ? 0 : (left ? 1 : -1)
+    ),
     int: EqualityComparer<int>(
       comparer: (left, right) => left == right,
       hasher: (value) => value.hashCode,
